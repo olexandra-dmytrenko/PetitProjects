@@ -8,7 +8,7 @@ import java.util.Arrays;
 public interface EnumGeneralization {
     public String getPettingName();
 
-    public static Names getNameByPettingName(final String pettingName, Names[] names) {
+    public static EnumGeneralization getNameByPettingName(final String pettingName, EnumGeneralization[] names) {
         return Arrays.stream(names).filter(name -> name.getPettingName().equals(pettingName)).findAny().orElse(null);
     }
 }

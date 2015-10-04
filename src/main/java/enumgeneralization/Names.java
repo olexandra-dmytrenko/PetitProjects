@@ -3,7 +3,7 @@ package enumgeneralization;
 /**
  * Created by olexandra on 04.10.15.
  */
-public enum Names{
+public enum Names implements EnumGeneralization {
     PASHA("boy", "Pashen'ka"),
     MASHA("girl", "Mashen'ka"),
     SASHA("both", "Sashen'ka");
@@ -16,17 +16,11 @@ public enum Names{
     }
 
     public static Names getNameByPettingName(String pettingName) {
-        return EnumGeneralization.getNameByPettingName(pettingName, Names.values());
+        return (Names) EnumGeneralization.getNameByPettingName(pettingName, Names.values());
     }
 
+    @Override
     public String getPettingName() {
         return pettingName;
     }
-
-
-    public void setPettingName(String pettingName) {
-        this.pettingName = pettingName;
-    }
-
-
 }
