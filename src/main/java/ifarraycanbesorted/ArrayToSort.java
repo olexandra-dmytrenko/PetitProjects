@@ -1,3 +1,5 @@
+package ifarraycanbesorted;
+
 /**
  * Created by olexandra on 27.09.15.
  * Answers the question if array can be sorted in one replacement or less.

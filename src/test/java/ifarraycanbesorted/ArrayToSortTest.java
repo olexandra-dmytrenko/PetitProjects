@@ -1,3 +1,5 @@
+package ifarraycanbesorted;
+
 import org.junit.Assert;
 
 public class ArrayToSortTest {
