@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -8,17 +9,15 @@ public class ArrayToSortTestParametrized {
     private boolean canBeSortedExpected;
     private int arrInts[];
 
-    public ArrayToSortTestParametrized(boolean canBeSortedExpected, int[] arrInts) {
+    public ArrayToSortTestParametrized(Boolean canBeSortedExpected, int[] arrInts) {
         this.canBeSortedExpected = canBeSortedExpected;
         this.arrInts = arrInts;
     }
 
     @Parameterized.Parameters
-    public static Object[][] data() {
-        Object[][] objects = new Object[][]{
-                {new int[]{1, 3, 2, 2}, true}
-        };
-        return objects;
+    public static Iterable<Object[]> data() {
+        Object[] params1 = new Object[] {Boolean.TRUE, new int[] { 1, 3, 2, 2 } };
+        return Arrays.asList(new Object[][] { params1 });
 
     }
 
