@@ -22,7 +22,7 @@ public class ArrayToSortTestParametrized {
         Object[] params1 = new Object[]{Boolean.FALSE, new int[]{1, 3, 2}};
         Object[] params2 = new Object[]{Boolean.FALSE, new int[]{1, 3, 2, 2}};
         Object[] params3 = new Object[]{Boolean.FALSE, new int[]{2, 1, 3}};
-        return Arrays.asList(new Object[][]{{params1}, {params2}, {params3}});
+        return Arrays.asList(new Object[][]{params1, params2, params3});
 
     }
 
