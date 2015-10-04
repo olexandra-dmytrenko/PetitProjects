@@ -20,6 +20,7 @@ public class ArrayToSortTestParametrized {
     @Parameterized.Parameters
     public static Iterable<Object[]> data() {
         Object[] params1 = new Object[]{Boolean.FALSE, new int[]{1, 3, 2}};
+        Object[] params1 = new Object[]{Boolean.FALSE, new int[]{2, 1, 3}};
         Object[] params2 = new Object[]{Boolean.FALSE, new int[]{1, 3, 2, 2}};
         return Arrays.asList(new Object[][]{{params1}, {params2}});
 
