@@ -89,6 +89,13 @@ public class ArrayToSortTest {
         canBeSorted = a.canBeSorted();
         Assert.assertFalse(canBeSorted);
     }
+    @org.junit.Test
+    public void testCanNotBeSorted2Repl() throws Exception {
+        ArrayToSort a = new ArrayToSort(new int[]{2, 1, 2, 1, 2, 9});
+        canBeSorted = a.canBeSorted();
+        Assert.assertFalse(canBeSorted);
+    }
+
 
     @org.junit.Test(expected = IllegalArgumentException.class)
     public void testIsNull() throws Exception {
