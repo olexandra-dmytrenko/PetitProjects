@@ -1,6 +1,10 @@
 package excercises;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Optional;
+import java.util.TreeMap;
+import java.util.function.BiFunction;
 
 /**
  * Created by Oleksandra_Dmytrenko on 6/8/2016.
@@ -14,6 +18,10 @@ import java.util.*;
  */
 public class FuzzBuzz {
     public static Map<Integer, String> numberToString = new TreeMap<>(Collections.reverseOrder());
+    private static BiFunction<Integer, Map.Entry<Integer, String>, String> fb = (n, d) -> n % d.getKey() == 0
+            ? d.getValue() : "";
+
+
 
     static {
         numberToString.put(15, "FuzzBuzz");
@@ -27,8 +35,27 @@ public class FuzzBuzz {
     }
 
     public static String fuzzBuzz(int number) {
-//return numberToString.entrySet().stream().filter(e -> number%e.getKey() == 0).limit(1).map(e -> e.getValue())
-        //.sorted(Comparator.reverseOrder())
-        return numberToString.entrySet().stream().map(e -> number % e.getKey() == 0 ? e.getValue() : null).peek(System.out::println).filter(e -> e != null).findFirst().orElse(number + "");
+        // return numberToString.entrySet().stream().filter(e -> number%e.getKey() ==
+        // 0).limit(1).map(e -> e.getValue())
+        // .sorted(Comparator.reverseOrder())
+        return numberToString.entrySet().stream().map(e -> number % e.getKey() == 0 ? e.getValue() : null)
+                .peek(System.out::println).filter(e -> e != null).findFirst().orElse(number + "");
+    }
+
+    public static String fuzzBuzzOptional(int number) {
+        return Optional
+                .of(number).map(n -> numberToString.entrySet().stream()
+                        .map(d -> n % d.getKey() == 0 ? d.getValue() : null).filter(e -> e != null).findFirst())
+                .get().orElse(number + "");
+    }
+
+    public static String fuzzBuzzOptionalManual(int number) {
+        return Optional.of(number).map(n -> (n % 3 == 0 ? "Fuzz" : "") + (n % 5 == 0 ? "Buzz" : ""))
+                .map(s -> s.isEmpty() ? number + s : s).get();
+    }
+
+    public static String fuzzBuzzOptionalManualWithOneMap(int number) {
+        String result = Optional.of(number).map(n -> (n % 3 == 0 ? "Fuzz" : "") + (n % 5 == 0 ? "Buzz" : "")).get();
+        return result.isEmpty() ? Integer.toString(number) : result;
     }
 }
