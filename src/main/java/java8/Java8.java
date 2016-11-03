@@ -1,6 +1,8 @@
 package java8;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Created by olexandra on 12/1/15.
@@ -36,22 +38,21 @@ public class Java8 {
 //        map.entrySet().stream().forEach(e -> System.out.println(e));
 
         System.out.println(map);
-        // System.out.println(map.entrySet().stream().sorted((o1, o2) ->
-        // o2.getValue().compareTo(o1.getValue())).
-        // collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (v1,v2)->v1,
-        // LinkedHashMap::new)));
-        // map.stream().sorted((o1, o2) -> o2.getValue().compareTo(o1.getValue()))
-        // .collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
+        System.out.println(map.entrySet().stream().sorted((o1, o2) -> o2.getValue().compareTo(o1.getValue())).
+                collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (v1,v2)->v1,
+                        LinkedHashMap::new)));
+//        map.stream().sorted((o1, o2) -> o2.getValue().compareTo(o1.getValue()))
+//                .collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
 
         /*
          * You can sort a map by value as below, more example here
-         * 
+         *
          * //Sort a Map by their Value. Map<Integer, String> random = new HashMap<Integer,
          * String>();
-         * 
+         *
          * random.put(1,"z"); random.put(6,"k"); random.put(5,"a"); random.put(3,"f");
          * random.put(9,"c");
-         * 
+         *
          * Map<Integer, String> sortedMap = random.entrySet().stream()
          * .sorted(Map.Entry.comparingByValue()) .collect(Collectors.toMap(Map.Entry::getKey,
          * Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new)); System.out.println(
@@ -59,6 +60,11 @@ public class Java8 {
          */
         List<String> strings = Arrays.asList("abc", "", "abc", "efg", "abcd", "", "jkl");
         System.out.println(strings.stream().filter(e -> !e.isEmpty()).distinct().count());
+
+        Stream<List<String>> stream = Collections.EMPTY_LIST.stream();
+        //List<String> last = stream.reduce((a, b) -> b);
+        System.out.println(strings.stream().unordered());
+
     }
 
     private static void sortUsingJava8(List<String> names1) {
