@@ -1,7 +1,12 @@
 package java8;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.StringJoiner;
 import java.util.stream.Stream;
 
 /**
@@ -38,9 +43,10 @@ public class Java8 {
 //        map.entrySet().stream().forEach(e -> System.out.println(e));
 
         System.out.println(map);
-        System.out.println(map.entrySet().stream().sorted((o1, o2) -> o2.getValue().compareTo(o1.getValue())).
-                collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (v1,v2)->v1,
-                        LinkedHashMap::new)));
+//        System.out.println(map.entrySet().stream().sorted((o1, o2) -> o2.getValue().compareTo(o1.getValue())).
+//                collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (v1,v2)->v1,
+//                        LinkedHashMap::new)));
+
 //        map.stream().sorted((o1, o2) -> o2.getValue().compareTo(o1.getValue()))
 //                .collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
 
