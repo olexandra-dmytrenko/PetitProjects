@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Created by olexandra on 3/17/16.
  */
-public class FileNotFound {
+public class FileNotFound extends Exception{
     public static void main(String args[]) {
         File file = new File("E://file.txt");
         //Checked exception, determined during compilation, programmers exception. Try-catch will help. E.g. FileNotFoundException

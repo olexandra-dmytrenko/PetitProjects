@@ -1,4 +1,4 @@
-package TryFinal;
+package tryFinal;
 
 /**
  * Created by Oleksandra_Dmytrenko on 3/11/2016.
