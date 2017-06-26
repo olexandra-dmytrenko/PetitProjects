@@ -46,10 +46,6 @@ public class SortArraysTest {
         initialList.add(8);
         initialList.add(5);
         initialList.add(2);
-        initialList.add(2);
-        initialList.add(2);
-        initialList.add(2);
-        initialList.add(2);
         LinkedList<Integer> sortedList = SortArrays.sortByInsertions(initialList);
 
         List<Integer> expectedList = Arrays.asList(2, 3, 4, 5, 7, 8);

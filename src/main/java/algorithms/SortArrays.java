@@ -37,7 +37,7 @@ public class SortArrays {
                 if (list.get(i) < list.get(j)) {
                     list.add(j, list.get(i));
                     list.remove(i + 1);
-//                    break;
+                    break;
                 }
             }
         }
