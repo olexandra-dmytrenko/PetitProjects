@@ -53,19 +53,40 @@ public class IfAnagrams {
                 if (firstSymbolsAmountMap.equals(secondSymbolsAmountMap)) {
                     result[i] = 0;
                 } else {
-                    int countDifs = 0;
-                    for (Map.Entry<Character, Integer> firstEntry : firstSymbolsAmountMap.entrySet()) {
-                        Integer secondAmount = secondSymbolsAmountMap.get(firstEntry.getKey());
-                        int symbolsAmountDif = firstEntry.getValue() - secondAmount;
-                        if (symbolsAmountDif > 0) {
-                            countDifs += symbolsAmountDif;
-                        }
-                    }
+//                    int countDifs = countSymbolsToReplace(firstSymbolsAmountMap, secondSymbolsAmountMap);
+                    int countDifs = countSymbolsToReplace1(first, second);
                     result[i] = countDifs;
                 }
             }
         }
         return result;
+    }
+
+    private static int countSymbolsToReplace1(String first, String second) {
+        int[] lettercounts = new int[26];
+        for (char c : first.toCharArray()) {
+            lettercounts[c - 'a']++;
+        }
+        for (char c : second.toCharArray()) {
+            lettercounts[c - 'a']--;
+        }
+        int result = 0;
+        for (int i : lettercounts) {
+            result += Math.abs(i);
+        }
+        return result / 2;
+    }
+
+    private static int countSymbolsToReplace(HashMap<Character, Integer> firstSymbolsAmountMap, HashMap<Character, Integer> secondSymbolsAmountMap) {
+        int countDifs = 0;
+        for (Map.Entry<Character, Integer> firstEntry : firstSymbolsAmountMap.entrySet()) {
+            Integer secondAmount = secondSymbolsAmountMap.get(firstEntry.getKey());
+            int symbolsAmountDif = firstEntry.getValue() - secondAmount;
+            if (symbolsAmountDif > 0) {
+                countDifs += symbolsAmountDif;
+            }
+        }
+        return countDifs;
     }
 
     private static HashMap<Character, Integer> createSymbolsAmountMap(String string) {
@@ -79,10 +100,9 @@ public class IfAnagrams {
 
     public static void main(String[] args) {
         String[] a = {"gcc"};
-        String[] b = {"bba"};
+        String[] b = {"cba"};
         int[] minimumDifference = getMinimumDifference(a, b);
-        for (int i = 0; i < minimumDifference.length; i++) {
-            int i1 = minimumDifference[i];
+        for (int i1 : minimumDifference) {
             System.out.println(i1);
         }
     }
