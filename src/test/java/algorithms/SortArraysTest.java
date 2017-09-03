@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -50,6 +51,31 @@ public class SortArraysTest {
 
         List<Integer> expectedList = Arrays.asList(2, 3, 4, 5, 7, 8);
         assertEquals(expectedList, sortedList);
+    }
+
+    @Test
+    public void isertionSortForFrontInsertion() throws Exception {
+        LinkedList<Integer> initialList = new LinkedList<>();
+        initialList.add(3);
+        initialList.add(6);
+        initialList.add(2);
+        initialList.add(5);
+        LinkedList<Integer> sortedList = SortArrays.sortByInsertions(initialList);
+
+        List<Integer> expectedList = Arrays.asList(2, 3, 5, 6);
+        assertEquals(expectedList, sortedList);
+    }
+
+    @Test
+    public void quckSort(){
+        int [] a = {1, 2, 9, 5, 8, 7, 1, 4, 0};
+        //base = 8
+        //(1, 2, 0, 5, 4, 1, 7, 8, 9)
+        int [] act = (new Quicksort()).sort(a);
+//        int [] act = (new SortArrays()).quickSort(a);
+//        int [] exp = {1, 2, 0, 5, 4, 7, 1, 8, 9}; - after first iteration
+        int [] exp = {0, 1, 1, 2, 4, 5, 7, 8, 9};
+        assertArrayEquals(exp, act);
     }
 
     @Test
