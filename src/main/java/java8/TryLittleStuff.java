@@ -3,19 +3,14 @@ package java8;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.stream.Stream;
+import java.util.Optional;
 
-import jdk.nashorn.internal.objects.annotations.Constructor;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNull;
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 /**
@@ -39,6 +34,51 @@ public class TryLittleStuff {
         }
         List<Person> list = Collections.emptyList();
         boolean isPresent = list.stream().allMatch(l -> l.getName().equals("Sasha"));
-        Assert.assertFalse(isPresent);
+        assertFalse(isPresent);
+    }
+
+    @Getter @AllArgsConstructor
+    class Agreement{
+        List<Boolean> isActive;
+    }
+    @Test
+    public void whatOptionalRefersToBody(){
+        Agreement aWithField = new Agreement(Collections.singletonList(true));
+        Boolean actual = Optional.ofNullable(aWithField)
+                .filter(agreement -> null != agreement.getIsActive())
+                .map(agreement -> agreement.getIsActive().get(0)).orElse(false);
+        assertTrue(actual);
+    }
+    @Test
+    public void whatOptionalRefersToMethodResult(){
+        Agreement aWithField = null;
+        Boolean actual = Optional.ofNullable(aWithField)
+                .filter(agreement -> null != agreement.getIsActive())
+                .map(agreement -> agreement.getIsActive().get(0)).orElse(false);
+        assertFalse(actual);
+    }
+
+    @Test
+    public void whatOptionalRefersTo(){
+        Agreement aWithField = new Agreement(Collections.singletonList(true));
+        Boolean actual = Optional.ofNullable(aWithField)
+                .filter(agreement -> false == agreement.getIsActive().get(0))
+                .map(agreement -> agreement.getIsActive().get(0)).orElse(false);
+        assertFalse(actual);
+    }
+
+    @Test
+    public void whichNullOptionalRefersTo(){
+        Agreement aWithField = null;
+        Optional.ofNullable(aWithField.getIsActive()).filter( a -> a!=null).ifPresent(a -> System.out.println(a));
+
+    }
+
+    @Test
+    public void withOrElseGet(){
+        String emptyString = (String) Optional.ofNullable(null).orElseGet(() -> {
+            System.out.println("Should be printed");
+            return "";
+        });
     }
 }

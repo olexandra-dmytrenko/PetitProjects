@@ -5,6 +5,6 @@ package regexp;
  */
 public class Splitting {
     public static String[] splitter(String body){
-        return body.split("((\r\n){2,}|\\.|\\;)");
+        return body.split("((\r\n){2,}|\\.|\\u003B)");//; = u003B
     }
 }

@@ -25,8 +25,9 @@ public class SumArrayPartsTest {
     public void testSolution2() throws Exception {
         int[] A = {1, 2, -3, 4, -5};
         int solution = SumArrayParts.solution4(A);
-        assertEquals(solution, 1);
+        assertEquals(solution, -1);//1
     }
+
     @Test
     public void testSolution3() throws Exception {
         int[] A = {1, 2, 3, 4, 5};
@@ -38,7 +39,7 @@ public class SumArrayPartsTest {
     public void testSolution4() throws Exception {
         int[] A = {-1000, 1000};
         int solution = SumArrayParts.solution4(A);
-        assertEquals(solution, 2000);
+        assertEquals(solution, 0);//2000
     }
 
     @Test
