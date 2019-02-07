@@ -21,5 +21,4 @@ public class ThreadInterupt {
         thread1.interrupt();
 
     }
-
 }
