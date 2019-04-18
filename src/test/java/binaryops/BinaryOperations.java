@@ -52,7 +52,7 @@ public class BinaryOperations {
             int k = 1;
             int i = bits << k;
             int j = bits >>> (Integer.SIZE - k);
-            int result = i | j;
+            int result = bits << k | bits >>> (Integer.SIZE - k);
             System.out.println("bits1=" + Integer.toBinaryString(bits));
             System.out.println("bits2=" + Integer.toBinaryString(i));
             System.out.println("bits3=" + Integer.toBinaryString(j));
