@@ -1,18 +1,13 @@
-import org.junit.Test;
-
-import java.util.Arrays;
-import java.util.concurrent.CompletionStage;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-
 import akka.NotUsed;
 import akka.actor.ActorSystem;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
-import akka.stream.testkit.javadsl.TestSink;
+import org.junit.Test;
+
+import java.util.Arrays;
+import java.util.concurrent.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -29,7 +24,8 @@ public class DataImporterTest {
         Source flow = Source.single(input).via(tested);
         //then
 
-        final CompletionStage<Double> future = Source.single(input).via(tested).runWith(Sink.fold(1d, (agg, next) -> agg * next), ActorMaterializer.create(actorSystem));
+        final CompletionStage<Double> future = Source.single(input).via(tested).
+                runWith(Sink.fold(1d, (agg, next) -> agg * next), ActorMaterializer.create(actorSystem));
         final Double result = future.toCompletableFuture().get(10, TimeUnit.SECONDS);
         assertEquals(3.0, result, 0.1);
         //        flow
@@ -41,15 +37,25 @@ public class DataImporterTest {
     @Test
     public void myTest() throws InterruptedException, ExecutionException, TimeoutException {
 
-        final Flow<Integer, Integer, NotUsed> flowUnderTest =
-                Flow.of(Integer.class).takeWhile(i -> i < 5);
+        final Flow<Integer, Integer, NotUsed> flowUnderTest = Flow.of(Integer.class).takeWhile(i -> i < 5);
+        final Flow<Integer, Integer, NotUsed> flowUnderTest2 = Flow.of(Integer.class).takeWhile(i -> i < 4);
 
         final CompletionStage<Integer> future =
                 Source.from(Arrays.asList(1, 2, 3, 4, 5, 6))
                         .via(flowUnderTest)
-                        .runWith(Sink.fold(0, (agg, next) -> agg + next), ActorMaterializer.create(actorSystem));
+                        .via(computeAverage())
+                        .runWith(Sink.fold(1, (agg, next) -> agg * next), ActorMaterializer.create(actorSystem));
         final Integer result = future.toCompletableFuture().get(3, TimeUnit.SECONDS);
-        assert (result == 10);
+        assertEquals(3.0, result, 0.1);
     }
 
+    public Flow<Integer, Integer, NotUsed> computeAverage() {
+        return Flow.of(Integer.class)
+                .grouped(3)
+                .mapAsync(2, integers ->
+                        CompletableFuture.supplyAsync(() ->
+                                integers.stream()
+                                        .mapToInt(v -> v)
+                                        .sum()));
+    }
 }

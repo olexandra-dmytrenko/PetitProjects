@@ -25,8 +25,7 @@ public class Quicksort  {
         // Get the pivot element from the middle of the list
         int pivot = numbers[low + (high-low)/2];
 
-        // Divide into two lists
-        while (i <= j) {
+        // Divide into two listsswhile (i <= j) {
             // If the current value from the left list is smaller than the pivot
             // element then get the next element from the left list
             while (numbers[i] < pivot) {
@@ -60,5 +59,11 @@ public class Quicksort  {
         int temp = numbers[i];
         numbers[i] = numbers[j];
         numbers[j] = temp;
+    }
+
+    public static void main(String[] args) {
+        Quicksort q = new Quicksort();
+        int [] a = {5, 4, 1,2, 3, -1, 4, 2, 6};
+        q.sort(a);
     }
 }
