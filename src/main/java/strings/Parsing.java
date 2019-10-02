@@ -1,11 +1,7 @@
 package strings;
 
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import jdk.nashorn.internal.runtime.regexp.JoniRegExp;
-import jdk.nashorn.internal.runtime.regexp.RegExp;
 
 /**
  * Created by Oleksandra_Dmytrenko on 24/11/2017.
@@ -121,7 +117,7 @@ public class Parsing {
         Pattern textInFrames = Pattern.compile(submissionInfo);
         input = input.replaceAll("\n", " ");
         Matcher m = textInFrames.matcher(input);
-        String s ;
+        String s;
         while (m.find()) {
             s = m.group(1);
             // s now contains "BAR"
