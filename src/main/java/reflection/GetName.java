@@ -5,12 +5,12 @@ import java.lang.reflect.Field;
 public class GetName {
     public static void main(String[] args) {
         Person person = new Person();
-        System.out.println(person.name);
+     //   System.out.println(person.name);
         Class<? extends Person> clazz = person.getClass();
         try {
-//            Field field = clazz.getSuperclass().getDeclaredField("name");
-//            Field field = clazz.getField("name");
-            Field field = clazz.getDeclaredField("name");
+            Field field = clazz.getSuperclass().getDeclaredField("name");
+ //           Field field = clazz.getField("name");
+           // Field field = clazz.getDeclaredField("name");
             field.setAccessible(true);
             field.set(person, "newborn");
             field.setAccessible(false);
@@ -18,15 +18,15 @@ public class GetName {
             e.printStackTrace();
         }
 
-        System.out.println(person.name);
+        System.out.println(person.getName());
     }
 }
 
 class Person {
-    String name ;//= "a";
-//    public String getName(){
-//        return name;
-//    }
+    private String name;
+    public String getName(){
+        return name;
+    }
 //
 //    public void setName(String name) {
 //        this.name = name;
