@@ -17,6 +17,10 @@ public class DatesParser {
         SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
         String dateInString = "07 JAN 2013";
 
+//        QueryResult queryResult = connectionPool
+//                .inTransaction(conn ->
+//                        conn.sendQuery("INSERT INTO Person(NAME) VALUES('sasha')")).get()
+
         if (!StringUtils.isEmpty(dateInString)) {
             try {
                 Date date = formatter.parse(dateInString);
