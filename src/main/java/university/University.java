@@ -6,33 +6,33 @@ import java.util.HashSet;
 
 public class University {
 
-    private Collection<Department> departments;
+    private Collection<MyDepartment> myDepartments;
 
     public University() {
-        departments = new HashSet<>();
+        myDepartments = new HashSet<>();
     }
 
-    public void addDepartment(Department... departments) {
+    public void addDepartment(MyDepartment... departments) {
         Arrays.stream(departments).forEach(this::tryAddDepartment);
         //this.departments.addAll(Arrays.asList(departments));
     }
 
-    private boolean tryAddDepartment(Department d) {
+    private boolean tryAddDepartment(MyDepartment d) {
         if (isPresent(d)) {
             throw new DepartmentExistsException(d);
         }
-        return departments.add(d);
+        return this.myDepartments.add(d);
     }
 
-    private boolean isPresent(Department d) {
-        return departments.contains(d);
+    private boolean isPresent(MyDepartment d) {
+        return myDepartments.contains(d);
     }
 
-    public void addDepartment(Collection<Department> departments) {
-        this.departments.addAll(departments);
+    public void addDepartment(Collection<MyDepartment> myDepartments) {
+        this.myDepartments.addAll(myDepartments);
     }
 
-    public Collection<Department> getDepartments() {
-        return departments;
+    public Collection<MyDepartment> getDepartments() {
+        return myDepartments;
     }
 }
