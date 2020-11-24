@@ -10,6 +10,7 @@ import static java.util.Optional.of;
 public class MyDepartment {
 
     public static final Subject SUBJECT_MATH = new Subject("Math", new Professor("Gavrylo Petrovych"));
+    public static final Subject SUBJECT_SCI = new Subject("Science", null);
     private static AtomicLong idCounter = new AtomicLong(0);
     private long id;
     private String name;
@@ -18,7 +19,7 @@ public class MyDepartment {
     public MyDepartment(String depName) {
         id = idCounter.incrementAndGet();
         this.name = depName;
-        subjects = List.of(SUBJECT_MATH);
+        subjects = List.of(SUBJECT_MATH, SUBJECT_SCI);
     }
 
     public String getName() {
@@ -51,12 +52,13 @@ public class MyDepartment {
     }
 
     public Optional<Professor> getProfessorBySubject(String subjectName) {
-//        if (subject != null){}
         return of(subjectName)
                 .map(s -> subjects.stream()
                         .filter(sub -> sub.getName().equals(s))
-                        .map(Subject::getProf)
                         .findAny()
+                        .map(Optional::of)
+                        .orElseThrow(SubjectNotFountException::new)
+                        .map(Subject::getProf)
                         .orElseThrow(ProfessorNotFountException::new)
                 );
     }
