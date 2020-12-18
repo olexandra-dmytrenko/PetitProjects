@@ -1,4 +1,4 @@
-package university;
+package university.pojo;
 
 public class Professor {
     String name;

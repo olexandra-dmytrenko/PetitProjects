@@ -9,11 +9,12 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.function.Predicate;
+
+import university.pojo.MyDepartment;
+import university.pojo.University;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class MyDepartmentTest {
@@ -24,32 +25,6 @@ public class MyDepartmentTest {
 
     @Before
     public void setUp() {
-    }
-
-    @Test
-    public void whenFindProfByExistingSubject_ProfFound() {
-        // GIVEN
-        final MyDepartment d = new MyDepartment(DEPARTMENT_TEF);
-        final Subject subject = new Subject("Math", new Professor("Gavrylo Petrovych"));
-
-        assertNotNull(d.getProfessorBySubject("Math"));
-    }
-
-    @Test(expected = SubjectNotFountException.class)
-    public void whenFindProfByNonExistingSubject_ThrowSubjectNotFoundEx() {
-        // GIVEN
-        final MyDepartment d = new MyDepartment(DEPARTMENT_TEF);
-        final Subject subject = new Subject("Math", new Professor("Gavrylo Petrovych"));
-        //WHEN
-        d.getProfessorBySubject("Math1");
-    }
-
-    @Test(expected = ProfessorNotFountException.class)
-    public void whenFindNonExistingProfByExistingSubject_ThrowSubjectNotFoundEx() {
-        // GIVEN
-        final MyDepartment d = new MyDepartment(DEPARTMENT_TEF);
-        //WHEN
-        d.getProfessorBySubject("Science");
     }
 
     @Test

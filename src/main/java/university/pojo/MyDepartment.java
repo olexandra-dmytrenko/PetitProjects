@@ -1,9 +1,12 @@
-package university;
+package university.pojo;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
+
+import university.exception.ProfessorNotFountException;
+import university.exception.SubjectNotFountException;
 
 import static java.util.Optional.of;
 
@@ -49,17 +52,5 @@ public class MyDepartment {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
-    }
-
-    public Optional<Professor> getProfessorBySubject(String subjectName) {
-        return of(subjectName)
-                .map(s -> subjects.stream()
-                        .filter(sub -> sub.getName().equals(s))
-                        .findAny()
-                        .map(Optional::of)
-                        .orElseThrow(SubjectNotFountException::new)
-                        .map(Subject::getProf)
-                        .orElseThrow(ProfessorNotFountException::new)
-                );
     }
 }
