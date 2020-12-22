@@ -12,22 +12,39 @@ public class Воробей {
         this.размерЖелудка = 10;
         this.съелМошек = количествоСъеденыхМошек;
         double сытость = количествоСъеденыхМошек * коэфициентНасыщения;
-        this.осталосьСъесть = (размерЖелудка - сытость)/коэфициентНасыщения;
+        this.осталосьСъесть = (размерЖелудка - сытость) / коэфициентНасыщения;
         //Проверочная формула сколько надо съесть мошек?
-        this.надоМошек = размерЖелудка/коэфициентНасыщения;
+        this.надоМошек = размерЖелудка / коэфициентНасыщения;
 
     }
 
+    public static String летаниеМошек(String weather) {
+        String prediction;
+        if (weather == "good") {
+            System.out.println("1");
+            prediction = ("Insects are flying");
+            System.out.println(prediction);
+        }
+
+        if (weather == "bad") {
+            prediction = ("Insects aren't flying");
+            System.out.println("2");
+        } else {
+            prediction = ("Search for insects");
+            System.out.println("3");
+        }
+        return prediction;
+    }
+
+
     public static void main(String[] args) {
-        Воробей воробушек1 = new Воробей(12);
+       /* Воробей воробушек1 = new Воробей(12);
         Воробей воробушек2 = new Воробей(14);
         System.out.println(воробушек1);
         System.out.println(воробушек2);
-        Воробей s1 = null;
-        Воробей s2 = null;
-
-        System.out.println(s1);
-        System.out.println(s2);
+       */
+        String todaysWeather = "Хмарно з проясненнями";
+        System.out.println(летаниеМошек("good"));
     }
 
     @Override
