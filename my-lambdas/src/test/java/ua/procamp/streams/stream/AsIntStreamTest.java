@@ -25,7 +25,7 @@ public class AsIntStreamTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrow_whenOfNullElements() {
-        AsIntStream.of(null);
+        AsIntStream.of((int[]) null);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class AsIntStreamTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrow_whenAverageOfNull() {
-        IntStream stream = AsIntStream.of(null);
+        IntStream stream = AsIntStream.of((int[]) null);
         stream.average();
     }
 
@@ -78,7 +78,7 @@ public class AsIntStreamTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrow_whenMaxOfNull() {
-        IntStream stream = AsIntStream.of(null);
+        IntStream stream = AsIntStream.of((int[]) null);
         stream.max();
     }
 
@@ -108,7 +108,7 @@ public class AsIntStreamTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrow_whenMinOfNull() {
-        IntStream stream = AsIntStream.of(null);
+        IntStream stream = AsIntStream.of((int[]) null);
         stream.min();
     }
 
@@ -138,7 +138,7 @@ public class AsIntStreamTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrow_whenSumNullEl() {
-        IntStream stream = AsIntStream.of(null);
+        IntStream stream = AsIntStream.of((int[]) null);
         stream.sum();
     }
 
@@ -188,7 +188,7 @@ public class AsIntStreamTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrow_whenMapAndAverageWithNullVals() {
-        IntStream stream = AsIntStream.of(null);
+        IntStream stream = AsIntStream.of((int[]) null);
         IntStream filtered = stream.map(value -> value * 2);
         filtered.count();
     }
@@ -243,7 +243,7 @@ public class AsIntStreamTest {
     public void shouldThrow_whenFlatMapToNull() {
         IntStream stream = AsIntStream.of(1, 2);
         IntStream resultStream = stream
-                .flatMap(value -> AsIntStream.of(null));
+                .flatMap(value -> AsIntStream.of((int[]) null));
         resultStream.count();
     }
 
@@ -307,7 +307,7 @@ public class AsIntStreamTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrow_whenToArrayNullEl() {
-        IntStream stream = AsIntStream.of(null);
+        IntStream stream = AsIntStream.of((int[]) null);
         stream.toArray();
     }
 }

@@ -1,7 +1,5 @@
 package university.service;
 
-import org.jetbrains.annotations.TestOnly;
-
 import java.util.Optional;
 
 import university.exception.ProfessorNotFountException;
@@ -19,7 +17,7 @@ public class DepartmentService {
         this.subjectService = subjectService;
     }
 
-     public Professor getProfessorBySubject(String subjectName) {
+    public Professor getProfessorBySubject(String subjectName) {
         return of(subjectName)
                 .map(s -> subjectService.getSubjects().stream()
                         .filter(sub -> sub.getName().equals(s))

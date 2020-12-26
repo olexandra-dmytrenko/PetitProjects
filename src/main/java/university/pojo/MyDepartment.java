@@ -1,14 +1,7 @@
 package university.pojo;
 
-import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
-
-import university.exception.ProfessorNotFountException;
-import university.exception.SubjectNotFountException;
-
-import static java.util.Optional.of;
 
 public class MyDepartment {
 
@@ -17,12 +10,10 @@ public class MyDepartment {
     private static AtomicLong idCounter = new AtomicLong(0);
     private long id;
     private String name;
-    private List<Subject> subjects;
 
     public MyDepartment(String depName) {
         id = idCounter.incrementAndGet();
         this.name = depName;
-        subjects = List.of(SUBJECT_MATH, SUBJECT_SCI);
     }
 
     public String getName() {

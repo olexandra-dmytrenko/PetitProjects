@@ -4,9 +4,9 @@ public class Subject {
     private String name;
     private Professor prof;
 
-    public Subject(String math, Professor gavrylo_petrovych) {
+    public Subject(String math, Professor profName) {
         name = math;
-        prof = gavrylo_petrovych;
+        prof = profName;
     }
 
     @Override

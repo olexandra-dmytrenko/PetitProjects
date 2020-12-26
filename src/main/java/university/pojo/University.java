@@ -14,12 +14,16 @@ public class University {
         myDepartments = new HashSet<>();
     }
 
+
     public void addDepartment(MyDepartment... departments) {
         Arrays.stream(departments).forEach(this::tryAddDepartment);
         //this.departments.addAll(Arrays.asList(departments));
     }
 
     private boolean tryAddDepartment(MyDepartment d) {
+        if(true){
+
+        }
         if (isPresent(d)) {
             throw new DepartmentExistsException(d);
         }

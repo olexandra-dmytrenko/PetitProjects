@@ -81,7 +81,7 @@ public class NykytaSortNumbers {
     private void outputArray() {
         listOfSortedNumberListInTextFormat.append("The list of sorted numbers is:");
         for (double d : listOfSortedNumbers) {
-            listOfSortedNumberListInTextFormat.append(d + ",");
+            listOfSortedNumberListInTextFormat.append(d).append(",");
         }
     }
 }
