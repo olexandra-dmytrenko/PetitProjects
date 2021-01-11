@@ -23,15 +23,17 @@ public class Воробей {
         if (weather == "good") {
             System.out.println("1");
             prediction = ("Insects are flying");
-            System.out.println(prediction);
+            //System.out.println(prediction);
         }
 
-        if (weather == "bad") {
+        else if (weather == "bad") {
             prediction = ("Insects aren't flying");
             System.out.println("2");
-        } else {
+            //System.out.println(prediction);
+        } else  { //иначе
             prediction = ("Search for insects");
             System.out.println("3");
+            //System.out.println(prediction);
         }
         return prediction;
     }
