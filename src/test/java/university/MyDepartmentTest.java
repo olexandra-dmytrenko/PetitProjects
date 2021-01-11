@@ -28,6 +28,17 @@ public class MyDepartmentTest {
     }
 
     @Test
+    public void equalsHashCode(){
+        MyDepartment department = null;
+        MyDepartment d1 = new MyDepartment(DEPARTMENT_TEF);
+        MyDepartment d2 = new MyDepartment(DEPARTMENT_TEF);
+        assertTrue(d1.equals(d2));
+        assertTrue(department == null);
+        //assertTrue(d1==d2);
+        //assertTrue(department.equals(null));
+    }
+
+    @Test
     public void departmentsEmpty_whenUniversityCreated() {
         //GIVEN
         //WHEN
