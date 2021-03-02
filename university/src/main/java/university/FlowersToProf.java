@@ -5,12 +5,12 @@ import java.util.List;
 import flowers.Flower;
 import university.pojo.Professor;
 
-public class FlowerfToProg {
+public class FlowersToProf {
 
     List<Flower> bouquet;
     Professor p;
 
-    public FlowerfToProg(List<Flower> bouquet, Professor p) {
+    public FlowersToProf(List<Flower> bouquet, Professor p) {
         this.bouquet = bouquet;
         this.p = p;
     }

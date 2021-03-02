@@ -4,7 +4,7 @@ import java.util.NoSuchElementException;
 
 public class SubjectNotFountException extends NoSuchElementException {
 
-    public SubjectNotFountException() {
-        super("No subject found");
+    public SubjectNotFountException(String subjectName) {
+        super("No subject " + subjectName + " found");
     }
 }

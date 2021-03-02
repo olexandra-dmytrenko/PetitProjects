@@ -1,5 +1,6 @@
-package university;
+package university.pojo;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -32,8 +33,8 @@ public class MyDepartmentTest {
         MyDepartment department = null;
         MyDepartment d1 = new MyDepartment(DEPARTMENT_TEF);
         MyDepartment d2 = new MyDepartment(DEPARTMENT_TEF);
-        assertTrue(d1.equals(d2));
-        assertTrue(department == null);
+        Assert.assertTrue(d1.equals(d2));
+        Assert.assertTrue(department == null);
         //assertTrue(d1==d2);
         //assertTrue(department.equals(null));
     }
@@ -45,7 +46,7 @@ public class MyDepartmentTest {
         University u = new University();
 
         //THEN
-        assertTrue(u.getDepartments().isEmpty());
+        Assert.assertTrue(u.getDepartments().isEmpty());
     }
 
     @Test
@@ -58,7 +59,7 @@ public class MyDepartmentTest {
         u.addDepartment(myDepartment);
 
         //THEN
-        assertFalse(u.getDepartments().isEmpty());
+        Assert.assertFalse(u.getDepartments().isEmpty());
     }
 
     @Test
@@ -73,7 +74,7 @@ public class MyDepartmentTest {
         u.addDepartment(myDepartment1, myDepartment2);
 
         //THEN
-        assertEquals(2, u.getDepartments().size());
+        Assert.assertEquals(2, u.getDepartments().size());
     }
 
     @Test
@@ -91,7 +92,7 @@ public class MyDepartmentTest {
         u.addDepartment(myDepartments);
 
         //THEN
-        assertEquals(3, u.getDepartments().size());
+        Assert.assertEquals(3, u.getDepartments().size());
     }
 
     @Test
@@ -106,7 +107,7 @@ public class MyDepartmentTest {
         u.addDepartment(myDepartments);
 
         //THEN
-        assertEquals(DEPARTMENT_TEF, myDepartment1.getName());
+        Assert.assertEquals(DEPARTMENT_TEF, myDepartment1.getName());
     }
 
     @Test
@@ -125,6 +126,6 @@ public class MyDepartmentTest {
                 .map(MyDepartment::getId)
                 .forEachOrdered(System.out::println);
         System.out.println(s.toString());
-        assertEquals(1, s.size());
+        Assert.assertEquals(1, s.size());
     }
 }

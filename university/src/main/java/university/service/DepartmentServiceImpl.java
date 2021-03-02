@@ -9,24 +9,26 @@ import university.pojo.Subject;
 
 import static java.util.Optional.of;
 
-public class DepartmentService {
+public class DepartmentServiceImpl implements DepartmentService {
 
     private SubjectService subjectService;
 
-    public DepartmentService(SubjectService subjectService) {
-        this.subjectService = subjectService;
-    }
-
+    @Override
     public Professor getProfessorBySubject(String subjectName) {
         return of(subjectName)
                 .map(s -> subjectService.getSubjects().stream()
                         .filter(sub -> sub.getName().equals(s))
                         .findAny()
                         .map(Optional::of)
-                        .orElseThrow(SubjectNotFountException::new)
+                        .orElseThrow(() -> new SubjectNotFountException(subjectName))
                         .map(Subject::getProf)
                         .orElseThrow(ProfessorNotFountException::new)
 
                 ).orElseThrow(() -> new RuntimeException("Exception that should never have happened"));
+    }
+
+    public DepartmentService setSubjectService(SubjectService subjectService) {
+        this.subjectService = subjectService;
+        return this;
     }
 }
