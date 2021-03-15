@@ -1,4 +1,4 @@
-package flowers;
+package flowershop;
 
 import lombok.Builder;
 

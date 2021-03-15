@@ -1,6 +1,6 @@
-package flowers;
+package flowershop;
 
-import university.pojo.Professor;
+import university.model.Professor;
 
 public interface GiveFlowersService {
     Bouquet createBouquet(int flowersAmount, Flower flowerType);

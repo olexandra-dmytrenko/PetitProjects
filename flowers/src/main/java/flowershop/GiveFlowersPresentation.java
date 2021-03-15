@@ -1,12 +1,8 @@
-package flowerstoperson;
+package flowershop;
 
 import java.awt.*;
 
-import flowers.Bouquet;
-import flowers.Flower;
-import flowers.GiveFlowersServiceOnLand;
-import flowers.GiveFlowersService;
-import university.pojo.Professor;
+import university.model.Professor;
 
 public class GiveFlowersPresentation {
     public static void main(String[] args) {

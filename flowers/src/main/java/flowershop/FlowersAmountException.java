@@ -1,7 +1,7 @@
-package flowers;
+package flowershop;
 
 public class FlowersAmountException extends NumberFormatException {
     public FlowersAmountException() {
-        super("Amount of flowers cannot be less than one");
+        super("Amount of flowershop.flowers cannot be less than one");
     }
 }

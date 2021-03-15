@@ -1,4 +1,4 @@
-package flowers;
+package flowershop;
 
 import org.junit.jupiter.api.Test;
 
