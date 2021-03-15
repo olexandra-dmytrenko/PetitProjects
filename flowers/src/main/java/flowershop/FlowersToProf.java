@@ -2,8 +2,8 @@ package flowershop;
 
 import java.util.List;
 
+import university.pojo.Professor;
 
-import university.model.Professor;
 
 public class FlowersToProf {
 

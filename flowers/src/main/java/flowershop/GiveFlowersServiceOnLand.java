@@ -1,6 +1,6 @@
 package flowershop;
 
-import university.model.Professor;
+import university.pojo.Professor;
 
 public class GiveFlowersServiceOnLand implements GiveFlowersService {
     @Override
