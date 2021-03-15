@@ -1,16 +1,5 @@
 package university.service;
 
-import org.junit.Test;
-
-import university.exception.ProfessorNotFountException;
-import university.exception.SubjectNotFountException;
-import university.pojo.MyDepartment;
-import university.pojo.Professor;
-import university.pojo.Subject;
-
-import static org.junit.Assert.assertNotNull;
-import static org.junit.jupiter.api.Assertions.*;
-
 class DepartmentServiceTest {
 
     private static final String DEPARTMENT_TEF = "TEF";

@@ -2,8 +2,7 @@ package flowershop;
 
 import java.awt.*;
 
-import university.pojo.Professor;
-
+import university.model.Professor;
 
 public class GiveFlowersPresentation {
     public static void main(String[] args) {

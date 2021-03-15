@@ -1,6 +1,6 @@
 package university.service;
 
-import university.pojo.Professor;
+import university.model.Professor;
 
 public interface DepartmentService {
     Professor getProfessorBySubject(String subjectName);

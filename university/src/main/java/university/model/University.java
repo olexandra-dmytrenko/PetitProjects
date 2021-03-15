@@ -1,4 +1,4 @@
-package university.pojo;
+package university.model;
 
 import java.util.Arrays;
 import java.util.Collection;

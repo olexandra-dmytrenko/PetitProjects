@@ -13,7 +13,7 @@ public class Main {
 
         final DepartmentController departmentController = context.getBean(DepartmentController.class);
 
-        departmentController.getProfessorBySubject("MATH");
+        System.out.println(departmentController.getProfessorBySubject("Math"));
     }
 
 }

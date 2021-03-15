@@ -5,8 +5,8 @@ import org.apache.commons.lang3.NotImplementedException;
 import java.util.Collections;
 import java.util.List;
 
-import university.pojo.Professor;
-import university.pojo.Subject;
+import university.model.Professor;
+import university.model.Subject;
 
 //CRUD operations
 public class SubjectRepository {
@@ -27,7 +27,7 @@ public class SubjectRepository {
     }
 
     public List<Subject> getAllSubjects() {
-        return Collections.emptyList();
+        return Collections.singletonList(new Subject("Math", new Professor("OA")));
     }
 
     public void deleteProfessor(long id) {

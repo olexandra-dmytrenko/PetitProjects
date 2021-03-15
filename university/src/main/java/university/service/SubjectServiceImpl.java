@@ -1,18 +1,18 @@
 package university.service;
 
-import java.util.Collections;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import repository.SubjectRepository;
-import university.pojo.Subject;
+import university.model.Subject;
 
+@RequiredArgsConstructor
+@Service
 public class SubjectServiceImpl implements SubjectService {
 
-    SubjectRepository subjectRepository;
-
-    public SubjectServiceImpl(SubjectRepository subjectRepository) {
-        this.subjectRepository = subjectRepository;
-    }
+    private final SubjectRepository subjectRepository;
 
     @Override
     public List<Subject> getSubjects(){

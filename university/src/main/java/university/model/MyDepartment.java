@@ -1,4 +1,4 @@
-package university.pojo;
+package university.model;
 
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicLong;

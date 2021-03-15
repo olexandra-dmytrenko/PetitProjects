@@ -1,6 +1,7 @@
 package context;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import repository.SubjectRepository;
@@ -11,9 +12,10 @@ import university.service.SubjectService;
 import university.service.SubjectServiceImpl;
 
 @Configuration
+@ComponentScan(basePackages = {"university.controller"})
 public class Application {
 
-    @Bean
+    // @Bean
     public DepartmentController departmentApi() {
         return new DepartmentController(departmentService());
     }

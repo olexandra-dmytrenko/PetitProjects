@@ -1,4 +1,4 @@
-package university.pojo;
+package university.model;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,13 +10,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-
-import university.pojo.MyDepartment;
-import university.pojo.University;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 public class MyDepartmentTest {
 

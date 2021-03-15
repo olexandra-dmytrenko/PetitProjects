@@ -12,8 +12,8 @@ import java.util.Collections;
 import java.util.List;
 
 import university.exception.SubjectNotFountException;
-import university.pojo.Professor;
-import university.pojo.Subject;
+import university.model.Professor;
+import university.model.Subject;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DepartmentServiceImplIT {

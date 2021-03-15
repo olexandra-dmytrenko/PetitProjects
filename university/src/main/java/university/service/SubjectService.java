@@ -2,7 +2,7 @@ package university.service;
 
 import java.util.List;
 
-import university.pojo.Subject;
+import university.model.Subject;
 
 public interface SubjectService {
     List<Subject> getSubjects();

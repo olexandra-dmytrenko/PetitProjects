@@ -1,11 +1,12 @@
 package flowershop;
 
-import university.pojo.Professor;
+
+import university.model.Professor;
 
 public class GiveFlowersServiceOnLand implements GiveFlowersService {
     @Override
     public Bouquet createBouquet(int flowersAmount, Flower flowerType) {
-        if (flowersAmount<1){
+        if (flowersAmount < 1) {
             throw new FlowersAmountException();
         }
         Flower[] flowers = new Flower[flowersAmount];
