@@ -5,8 +5,8 @@ import org.apache.commons.lang3.NotImplementedException;
 import java.util.Collections;
 import java.util.List;
 
-import university.model.Professor;
-import university.model.Subject;
+import model.Professor;
+import model.Subject;
 
 //CRUD operations
 public class SubjectRepository {

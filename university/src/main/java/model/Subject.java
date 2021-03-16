@@ -1,4 +1,4 @@
-package university.model;
+package model;
 
 
 import javax.persistence.Column;

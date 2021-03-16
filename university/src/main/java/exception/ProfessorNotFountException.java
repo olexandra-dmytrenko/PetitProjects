@@ -1,4 +1,4 @@
-package university.exception;
+package exception;
 
 import java.util.NoSuchElementException;
 

@@ -1,16 +1,16 @@
-package university.service;
+package service;
 
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+import exception.ProfessorNotFountException;
+import exception.SubjectNotFountException;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import university.exception.ProfessorNotFountException;
-import university.exception.SubjectNotFountException;
-import university.model.Professor;
-import university.model.Subject;
+import model.Professor;
+import model.Subject;
 
 import static java.util.Optional.of;
 

@@ -1,4 +1,4 @@
-package university.service;
+package service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,9 +11,9 @@ import org.testng.Assert;
 import java.util.Collections;
 import java.util.List;
 
-import university.exception.SubjectNotFountException;
-import university.model.Professor;
-import university.model.Subject;
+import exception.SubjectNotFountException;
+import model.Professor;
+import model.Subject;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DepartmentServiceImplIT {

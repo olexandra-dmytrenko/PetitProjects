@@ -1,8 +1,8 @@
-package university.service;
+package service;
 
 import java.util.List;
 
-import university.model.Subject;
+import model.Subject;
 
 public interface SubjectService {
     List<Subject> getSubjects();

@@ -1,12 +1,12 @@
-package university.service;
+package service;
 
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 import lombok.RequiredArgsConstructor;
+import model.Subject;
 import repository.SubjectRepository;
-import university.model.Subject;
 
 @RequiredArgsConstructor
 @Service

@@ -4,15 +4,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import controller.DepartmentController;
 import repository.SubjectRepository;
-import university.controller.DepartmentController;
-import university.service.DepartmentService;
-import university.service.DepartmentServiceImpl;
-import university.service.SubjectService;
-import university.service.SubjectServiceImpl;
+import service.DepartmentService;
+import service.DepartmentServiceImpl;
+import service.SubjectService;
+import service.SubjectServiceImpl;
 
 @Configuration
-@ComponentScan(basePackages = {"university.controller"})
+@ComponentScan(basePackages = {"controller"})
 public class Application {
 
     // @Bean

@@ -1,6 +1,6 @@
-package university.service;
+package service;
 
-import university.model.Professor;
+import model.Professor;
 
 public interface DepartmentService {
     Professor getProfessorBySubject(String subjectName);

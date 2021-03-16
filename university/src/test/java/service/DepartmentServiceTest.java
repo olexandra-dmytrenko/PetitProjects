@@ -1,4 +1,4 @@
-package university.service;
+package service;
 
 class DepartmentServiceTest {
 

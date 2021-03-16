@@ -1,4 +1,4 @@
-package university.model;
+package model;
 
 import org.junit.Assert;
 import org.junit.Before;

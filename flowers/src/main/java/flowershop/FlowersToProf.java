@@ -2,7 +2,7 @@ package flowershop;
 
 import java.util.List;
 
-import university.model.Professor;
+import model.Professor;
 
 public class FlowersToProf {
 

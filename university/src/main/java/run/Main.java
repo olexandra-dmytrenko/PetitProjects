@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import context.Application;
-import university.controller.DepartmentController;
+import controller.DepartmentController;
 
 //to start your controller
 public class Main {

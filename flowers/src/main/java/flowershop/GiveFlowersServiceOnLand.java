@@ -1,7 +1,7 @@
 package flowershop;
 
 
-import university.model.Professor;
+import model.Professor;
 
 public class GiveFlowersServiceOnLand implements GiveFlowersService {
     @Override

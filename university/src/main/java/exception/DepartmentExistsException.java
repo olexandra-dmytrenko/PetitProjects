@@ -1,6 +1,6 @@
-package university.exception;
+package exception;
 
-import university.model.MyDepartment;
+import model.MyDepartment;
 
 public class DepartmentExistsException extends RuntimeException {
     public DepartmentExistsException(MyDepartment d) {

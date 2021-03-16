@@ -4,8 +4,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
-import university.model.Professor;
-import university.model.Subject;
+import model.Professor;
+import model.Subject;
 
 
 public class HibernateSessionFactoryUtil {

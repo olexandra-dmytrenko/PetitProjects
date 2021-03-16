@@ -1,10 +1,10 @@
-package university.model;
+package model;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 
-import university.exception.DepartmentExistsException;
+import exception.DepartmentExistsException;
 
 public class University {
 

@@ -1,10 +1,10 @@
-package university.controller;
+package controller;
 
 import org.springframework.stereotype.Controller;
 
 import lombok.RequiredArgsConstructor;
-import university.model.Professor;
-import university.service.DepartmentService;
+import model.Professor;
+import service.DepartmentService;
 
 @RequiredArgsConstructor
 @Controller

@@ -1,4 +1,4 @@
-package university.model;
+package model;
 
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicLong;
