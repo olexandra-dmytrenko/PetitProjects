@@ -1,4 +1,4 @@
-package exception;
+package ua.kpi.tef.exception;
 
 import java.util.NoSuchElementException;
 

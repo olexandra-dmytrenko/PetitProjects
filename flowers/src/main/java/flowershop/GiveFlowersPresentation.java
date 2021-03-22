@@ -2,7 +2,7 @@ package flowershop;
 
 import java.awt.*;
 
-import model.Professor;
+import ua.kpi.tef.model.Professor;
 
 public class GiveFlowersPresentation {
     public static void main(String[] args) {

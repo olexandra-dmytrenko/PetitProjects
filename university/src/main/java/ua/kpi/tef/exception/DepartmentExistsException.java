@@ -1,6 +1,6 @@
-package exception;
+package ua.kpi.tef.exception;
 
-import model.MyDepartment;
+import ua.kpi.tef.model.MyDepartment;
 
 public class DepartmentExistsException extends RuntimeException {
     public DepartmentExistsException(MyDepartment d) {

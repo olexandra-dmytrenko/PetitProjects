@@ -1,10 +1,10 @@
-package model;
+package ua.kpi.tef.model;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 
-import exception.DepartmentExistsException;
+import ua.kpi.tef.exception.DepartmentExistsException;
 
 public class University {
 

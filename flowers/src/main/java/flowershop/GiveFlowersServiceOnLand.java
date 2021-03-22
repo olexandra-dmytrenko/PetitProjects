@@ -1,7 +1,7 @@
 package flowershop;
 
 
-import model.Professor;
+import ua.kpi.tef.model.Professor;
 
 public class GiveFlowersServiceOnLand implements GiveFlowersService {
     @Override

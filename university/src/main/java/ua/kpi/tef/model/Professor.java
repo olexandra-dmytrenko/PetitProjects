@@ -1,4 +1,4 @@
-package model;
+package ua.kpi.tef.model;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "professor")
+@Table(name = "PROFESSOR")
 @ToString(exclude = {"subjects"})
 @Setter
 @EqualsAndHashCode

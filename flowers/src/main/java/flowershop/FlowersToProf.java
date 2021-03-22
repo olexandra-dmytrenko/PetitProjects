@@ -2,7 +2,7 @@ package flowershop;
 
 import java.util.List;
 
-import model.Professor;
+import ua.kpi.tef.model.Professor;
 
 public class FlowersToProf {
 

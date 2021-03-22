@@ -1,4 +1,4 @@
-package model;
+package ua.kpi.tef.model;
 
 
 import javax.persistence.Column;
@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.extern.java.Log;
 
 @Entity
-@Table
+@Table(name = "SUBJECT")
 @NoArgsConstructor
 @Data
 @Log
@@ -24,7 +24,7 @@ public class Subject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column
     private String name;

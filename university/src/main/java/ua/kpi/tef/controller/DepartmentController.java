@@ -1,10 +1,10 @@
-package controller;
+package ua.kpi.tef.controller;
 
 import org.springframework.stereotype.Controller;
 
 import lombok.RequiredArgsConstructor;
-import model.Professor;
-import service.DepartmentService;
+import ua.kpi.tef.model.Professor;
+import ua.kpi.tef.service.DepartmentService;
 
 @RequiredArgsConstructor
 @Controller

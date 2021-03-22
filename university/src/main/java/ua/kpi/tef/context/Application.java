@@ -1,22 +1,17 @@
-package context;
+package ua.kpi.tef.context;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-
-import controller.DepartmentController;
-import repository.SubjectRepository;
-import service.DepartmentService;
-import service.DepartmentServiceImpl;
-import service.SubjectService;
-import service.SubjectServiceImpl;
+import org.springframework.context.annotation.Import;
 
 @Configuration
-@ComponentScan(basePackages = {"controller"})
+@ComponentScan(basePackages = {"ua.kpi.tef.controller", "model", "ua.kpi.tef.service", "ua.kpi.tef.repository"})
+@Import(HibernateConf.class)
 public class Application {
 
+
     // @Bean
-    public DepartmentController departmentApi() {
+    /*public DepartmentController departmentApi() {
         return new DepartmentController(departmentService());
     }
 
@@ -34,6 +29,6 @@ public class Application {
     @Bean
     protected SubjectRepository subjectRepository() {
         return new SubjectRepository();
-    }
+    }*/
 
 }

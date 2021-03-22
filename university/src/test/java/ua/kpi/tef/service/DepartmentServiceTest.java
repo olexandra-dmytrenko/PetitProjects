@@ -1,4 +1,4 @@
-package service;
+package ua.kpi.tef.service;
 
 class DepartmentServiceTest {
 

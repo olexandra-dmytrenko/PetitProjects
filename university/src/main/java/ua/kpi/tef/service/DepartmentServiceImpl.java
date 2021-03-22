@@ -1,16 +1,17 @@
-package service;
+package ua.kpi.tef.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import exception.ProfessorNotFountException;
-import exception.SubjectNotFountException;
+import ua.kpi.tef.exception.ProfessorNotFountException;
+import ua.kpi.tef.exception.SubjectNotFountException;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import model.Professor;
-import model.Subject;
+import ua.kpi.tef.model.Professor;
+import ua.kpi.tef.model.Subject;
 
 import static java.util.Optional.of;
 
@@ -21,7 +22,9 @@ import static java.util.Optional.of;
 @Accessors(chain = true)
 public class DepartmentServiceImpl implements DepartmentService {
 
+    @Autowired
     private SubjectService subjectService;
+
 
     @Override
     public Professor getProfessorBySubject(String subjectName) {

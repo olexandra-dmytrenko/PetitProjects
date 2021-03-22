@@ -1,4 +1,4 @@
-package service;
+package ua.kpi.tef.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,9 +11,9 @@ import org.testng.Assert;
 import java.util.Collections;
 import java.util.List;
 
-import exception.SubjectNotFountException;
-import model.Professor;
-import model.Subject;
+import ua.kpi.tef.exception.SubjectNotFountException;
+import ua.kpi.tef.model.Professor;
+import ua.kpi.tef.model.Subject;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DepartmentServiceImplIT {

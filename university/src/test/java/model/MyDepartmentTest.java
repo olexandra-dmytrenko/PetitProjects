@@ -11,6 +11,9 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
+import ua.kpi.tef.model.MyDepartment;
+import ua.kpi.tef.model.University;
+
 public class MyDepartmentTest {
 
     private static final String DEPARTMENT_NAME_1 = "Dep1";

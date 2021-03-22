@@ -1,8 +1,8 @@
-package service;
+package ua.kpi.tef.service;
 
 import java.util.List;
 
-import model.Subject;
+import ua.kpi.tef.model.Subject;
 
 public interface SubjectService {
     List<Subject> getSubjects();
