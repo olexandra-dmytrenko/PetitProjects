@@ -12,7 +12,6 @@ import akka.stream.javadsl.Flow;
 import akka.stream.javadsl.Keep;
 import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,10 +21,13 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@AllArgsConstructor
 public class DataImporter {
-    private ActorSystem actorSystem;
+    private final ActorSystem actorSystem;
     private final Repository averageRepository = new Repository();
+
+    public DataImporter(ActorSystem actorSystem) {
+        this.actorSystem = actorSystem;
+    }
 
     private List<Integer> parseLine(String line) {
         String[] fields = line.split(";");
@@ -48,28 +50,29 @@ public class DataImporter {
                                         .sum()));
     }
 
-    public Flow<String, Double, NotUsed> stringToAverage(){
+    public Flow<String, Double, NotUsed> stringToAverage() {
         return Flow.of(String.class)
                 .via(parseContent())
                 .via(computeAverage());
     }
 
 
-
-    private Sink<Double, CompletionStage<Done>> storeAverages(){
+    private Sink<Double, CompletionStage<Done>> storeAverages() {
         return Flow.of(Double.class)
                 .mapAsyncUnordered(4, averageRepository::save)
                 .toMat(Sink.ignore(), Keep.right());
     }
 
-    CompletionStage<Done> calculateAvFor(String content){
+    CompletionStage<Done> calculateAvFor(String content) {
         return Source.single(content)
                 .via(stringToAverage())
                 .runWith(storeAverages(), ActorMaterializer.create(actorSystem))
                 .whenComplete((d, e) -> {
-                    if (d!=null){
+                    if (d != null) {
                         System.out.println("Import finished with result: " + d);
-                    }else {e.printStackTrace();};
+                    } else {
+                        e.printStackTrace();
+                    }
                 });
     }
 }

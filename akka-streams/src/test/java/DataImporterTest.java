@@ -1,13 +1,18 @@
+import org.junit.Test;
+
+import java.util.Arrays;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
 import akka.NotUsed;
 import akka.actor.ActorSystem;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
-import org.junit.Test;
-
-import java.util.Arrays;
-import java.util.concurrent.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -27,7 +32,7 @@ public class DataImporterTest {
         final CompletionStage<Double> future = Source.single(input).via(tested).
                 runWith(Sink.fold(1d, (agg, next) -> agg * next), ActorMaterializer.create(actorSystem));
         final Double result = future.toCompletableFuture().get(10, TimeUnit.SECONDS);
-        assertEquals(3.0, result, 0.1);
+        assertEquals(24.0, result, 0.1);
         //        flow
 //                .runWith(TestSink.probe(actorSystem), ActorMaterializer.create(actorSystem));
 //                .request(4)
