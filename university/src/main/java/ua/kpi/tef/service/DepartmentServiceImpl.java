@@ -5,11 +5,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import ua.kpi.tef.exception.ProfessorNotFountException;
-import ua.kpi.tef.exception.SubjectNotFountException;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import ua.kpi.tef.exception.ProfessorNotFountException;
+import ua.kpi.tef.exception.SubjectNotFountException;
 import ua.kpi.tef.model.Professor;
 import ua.kpi.tef.model.Subject;
 
@@ -18,13 +19,12 @@ import static java.util.Optional.of;
 @RequiredArgsConstructor
 @Service
 @Setter
-//TODO: discuss
+@Getter
 @Accessors(chain = true)
 public class DepartmentServiceImpl implements DepartmentService {
 
     @Autowired
     private SubjectService subjectService;
-
 
     @Override
     public Professor getProfessorBySubject(String subjectName) {
