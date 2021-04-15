@@ -36,7 +36,6 @@ public class DepartmentServiceImpl implements DepartmentService {
                         .orElseThrow(() -> new SubjectNotFountException(subjectName))
                         .map(Subject::getProfessor)
                         .orElseThrow(ProfessorNotFountException::new)
-
                 ).orElseThrow(() -> new RuntimeException("Exception that should never have happened"));
     }
 }

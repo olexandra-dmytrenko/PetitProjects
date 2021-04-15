@@ -1,9 +1,11 @@
 package ua.kpi.tef.context;
 
-import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
+//import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import java.util.Properties;
 
@@ -15,9 +17,9 @@ public class HibernateConfPostgres {
 
     @Bean
     public DataSource dataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres?autoreconnect=true");
         dataSource.setUsername("postgres");
         dataSource.setPassword("root");
 
@@ -31,11 +33,11 @@ public class HibernateConfPostgres {
         validate – Hibernate only validates whether the tables and columns exist, otherwise it throws an exception
         none – this value effectively turns off the DDL generation
          */
-   // @Bean
+    // @Bean
     public Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty(
-                "hibernate.hbm2ddl.auto", "create-drop"); //update, validate, create, create-drop create-drop
+                "hibernate.hbm2ddl.auto", "create"); //update, validate, create, create-drop create-drop
         hibernateProperties.setProperty(
                 "hibernate.dialect",
                 "org.hibernate.dialect.PostgreSQLDialect"

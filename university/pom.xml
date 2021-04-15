@@ -1,92 +1,169 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>sortarray</artifactId>
-        <groupId>sorting</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>university</artifactId>
 
+    <parent>
+        <artifactId>sortarray</artifactId>
+        <groupId>sorting</groupId>
+        <version>1.0-SNAPSHOT</version>
+
+        <!--        <groupId>org.springframework.boot</groupId>-->
+        <!--        <artifactId>spring-boot-starter-parent</artifactId>-->
+        <!--        <version>2.4.4</version>-->
+    </parent>
+
     <properties>
-        <spring.version>5.3.4</spring.version>
+        <spring.version>5.3.5</spring.version>
+        <spring-boot.version>2.4.4</spring-boot.version>
         <slf4j.version>1.7.30</slf4j.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <!--            <version>2.4.4</version>-->
+            <!--                        <exclusions>-->
+            <!--                            <exclusion>-->
+            <!--                                <groupId>org.springframework.boot</groupId>-->
+            <!--                                <artifactId>spring-boot-starter-logging</artifactId>-->
+            <!--                            </exclusion>-->
+            <!--                        </exclusions>-->
+
+            <!--            <exclusions>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>ch.qos.logback</groupId>-->
+            <!--                    <artifactId>logback-classic</artifactId>-->
+            <!--                </exclusion>-->
+            <!--            </exclusions>-->
         </dependency>
 
+        <!--
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-jdbc</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-starter-logging</artifactId>
+                        </exclusion>
+                    </exclusions>
+
+                </dependency>
+        -->
+
+        <!--
+                 <dependency>
+                     <groupId>org.springframework</groupId>
+                     <artifactId>spring-context</artifactId>
+                     <version>${spring.version}</version>
+                 </dependency>
+                <dependency>
+                    <groupId>org.springframework.plugin</groupId>
+                    <artifactId>spring-plugin-core</artifactId>
+                    <version>2.0.0.RELEASE</version>
+                </dependency>
+        -->
+        <!--
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-orm</artifactId>
+                    <version>${spring.version}</version>
+                </dependency>
+        -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>${spring.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <!--            <version>2.4.4</version>-->
+            <!--            <version>2.4.6</version>-->
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>2.4.6</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>5.4.29.Final</version>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.hibernate</groupId>-->
+        <!--            <artifactId>hibernate-core</artifactId>-->
+        <!--            <version>5.4.29.Final</version>-->
+        <!--        </dependency>-->
 
         <!--        Tomcat JDBC Connection Pooling, which fits better for production purposes
         than the DriverManagerDataSource provided by Spring:-->
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-dbcp</artifactId>
-            <version>10.0.4</version>
-        </dependency>
-
+        <!-- <dependency>
+             <groupId>org.apache.tomcat</groupId>
+             <artifactId>tomcat-dbcp</artifactId>
+             <version>10.0.4</version>
+         </dependency>
+ -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.19</version>
+            <!--            <version>42.2.19</version>-->
         </dependency>
 
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.200</version>
+            <!--            <version>1.4.200</version>-->
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.18</version>
-            <scope>provided</scope>
+            <!--            <version>1.18.18</version>-->
+            <!--            <scope>provided</scope>-->
         </dependency>
 
 
+        <!--
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-core</artifactId>
+                    <version>2.14.1</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                    <version>${slf4j.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                    <version>${slf4j.version}</version>
+                </dependency>
+        -->
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.14.1</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <!--            <version>${spring-boot.version}</version>-->
+            <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework</groupId>-->
+        <!--            <artifactId>spring-test</artifactId>-->
+        <!--            <version>${spring.version}</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
 
 
+        <!-- <dependency>
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-maven-plugin</artifactId>
+             <version>${spring-boot.version}</version>
+         </dependency>
+ -->
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

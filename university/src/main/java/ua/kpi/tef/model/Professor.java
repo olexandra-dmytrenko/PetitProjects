@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,19 +23,19 @@ import lombok.ToString;
 @Table(name = "PROFESSOR")
 @ToString(exclude = {"subjects"})
 @Setter
-@EqualsAndHashCode
+@EqualsAndHashCode(exclude = {"subjects"})
 @NoArgsConstructor
 public class Professor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column
     private String name;
     @Column
     private String surname;
     @Temporal(TemporalType.DATE)
     private Date birthday;
-    @OneToMany(mappedBy = "professor", orphanRemoval = false)
+    @OneToMany(mappedBy = "professor", fetch = FetchType.EAGER)
     private List<Subject> subjects;
 
     public Professor(String name) {

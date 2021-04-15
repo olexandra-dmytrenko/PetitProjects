@@ -1,12 +1,12 @@
 package ua.kpi.tef.service;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.testng.Assert;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Collections;
 import java.util.List;
@@ -15,8 +15,8 @@ import ua.kpi.tef.exception.SubjectNotFountException;
 import ua.kpi.tef.model.Professor;
 import ua.kpi.tef.model.Subject;
 
-@RunWith(MockitoJUnitRunner.class)
-public class DepartmentServiceImplIT {
+@ExtendWith(MockitoExtension.class)
+public class DepartmentServiceImplMockitoTest {
 
     private static final String SUBJECT_MATH = "Math";
     private static final Professor PROFESSOR_NAME = new Professor("Name");
@@ -39,11 +39,10 @@ public class DepartmentServiceImplIT {
 
         //THEN
         Mockito.verify(subjectServiceImpl, Mockito.times(1)).getSubjects();
-        Assert.assertEquals(actual, PROFESSOR_NAME);
-
+        Assertions.assertEquals(actual, PROFESSOR_NAME);
     }
 
-    @Test(expected = SubjectNotFountException.class)
+    @Test
     public void getProfessorBySubject_whenSubjIsInvalid_thenThrowSubjectEx() {
         //GIVEN
         final List<Subject> subjects = Collections.singletonList(
@@ -51,11 +50,7 @@ public class DepartmentServiceImplIT {
         //Mockito.when(subjectService.getSubjects()).then(subjects);
         Mockito.doReturn(subjects).when(subjectServiceImpl).getSubjects();
 
-        //WHEN
-        final Professor actual = departmentServiceImpl.getProfessorBySubject(SUBJECT_MATH + "1");
-
-        //THEN
-        //  Assert.assertThrows(SubjectNotFountException::new);
-
+        //WHEN THEN
+        Assertions.assertThrows(SubjectNotFountException.class, () -> departmentServiceImpl.getProfessorBySubject(SUBJECT_MATH + "1"));
     }
 }

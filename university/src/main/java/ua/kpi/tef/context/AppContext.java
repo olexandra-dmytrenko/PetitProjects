@@ -5,12 +5,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 
-@Configuration
-@PropertySource("classpath:application.properties")
-@ComponentScan(basePackages = {"ua.kpi.tef.controller", "model", "ua.kpi.tef.service", "ua.kpi.tef.repository"})
-@Import(HibernateConfCommon.class)
-public class Application {
+import lombok.extern.slf4j.Slf4j;
 
+//TODO: 1) SpringBoot in a separate class
+//TODO: 2) Fix Hibernate with lazy
+//TODO: 3) Make tests
+@Configuration
+@Slf4j
+@PropertySource("classpath:application.properties")
+@ComponentScan(basePackages = {"ua.kpi.tef.controller", "ua.kpi.tef.service", "ua.kpi.tef.repository"})
+@Import(HibernateConfCommon.class)
+public class AppContext {
 
     // @Bean
     /*public DepartmentController departmentApi() {

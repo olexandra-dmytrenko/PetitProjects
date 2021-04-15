@@ -1,22 +1,22 @@
 package ua.kpi.tef.run;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 
 import lombok.extern.slf4j.Slf4j;
-import ua.kpi.tef.context.AppContext;
 import ua.kpi.tef.controller.DepartmentController;
 
-//to start your controller
 @Slf4j
-public class Main {
-
+@SpringBootApplication(scanBasePackages = "ua.kpi.tef")
+public class SpringBootRunner {
     public static void main(String[] args) {
-        log.info("Start Application");
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppContext.class);
+
+        final ConfigurableApplicationContext context = SpringApplication.run(SpringBootRunner.class, args);
 
         final ConfigurableEnvironment environment = context.getEnvironment();
-        System.out.println("Active profile: " + environment.getProperty("spring.profiles.active"));
+        log.debug("Active profile: " + environment.getProperty("spring.profiles.active"));
 
         final DepartmentController departmentController = context.getBean(DepartmentController.class);
 

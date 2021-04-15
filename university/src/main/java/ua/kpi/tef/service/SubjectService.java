@@ -6,4 +6,7 @@ import ua.kpi.tef.model.Subject;
 
 public interface SubjectService {
     List<Subject> getSubjects();
+
+    Subject addSubject(Subject subject);
+
 }

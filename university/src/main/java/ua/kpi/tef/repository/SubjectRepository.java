@@ -11,6 +11,5 @@ import ua.kpi.tef.model.Subject;
 //TODO: remove methods that belong to Prof because of generics
 public interface SubjectRepository extends JpaRepository<Subject, Long> {
 //TODO: find all?
-   // public List<Subject> getAllSubjects() ;
-
+    // public List<Subject> getAllSubjects() ;
 }
