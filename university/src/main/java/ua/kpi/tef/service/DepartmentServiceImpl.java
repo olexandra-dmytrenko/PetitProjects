@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;

@@ -15,7 +15,7 @@ public interface ProfessorRepository extends CrudRepository<Professor, Long> {
 //    public Professor updateById(Professor professor);
 
     //    public void delete(long id) ;
-    @Query("SELECT p.surname FROM Professor p WHERE p.name = :name")
-    public List<Professor> findProfessorByName(final @Param("name") String name);
+//    @Query("SELECT p.surname FROM Professor p WHERE p.name = :name")
+    public List<Professor> findProfessorByNameStartsWithIgnoreCase(final @Param("name") String name);
 
 }

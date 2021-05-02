@@ -1,8 +1,8 @@
 package ua.kpi.tef.service;
 
-import org.springframework.stereotype.Service;
+import com.vaadin.flow.router.NotFoundException;
 
-import java.util.Optional;
+import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import ua.kpi.tef.model.Professor;
@@ -20,7 +20,8 @@ public class ProfessorServiceImpl implements ProfessorService {
     }
 
     @Override
-    public Optional<Professor> getProfessor(Long id) {
-        return professorRepository.findById(id);
+    public Professor getProfessor(Long id) {
+        return professorRepository.findById(id).orElseThrow(() ->
+                new NotFoundException("Professor with id " + id + " does not exist."));
     }
 }

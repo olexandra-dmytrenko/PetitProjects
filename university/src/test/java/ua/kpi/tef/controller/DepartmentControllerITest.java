@@ -16,13 +16,13 @@ import ua.kpi.tef.model.Subject;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static ua.kpi.tef.TestFixtures.PROFESSOR;
+import static ua.kpi.tef.TestFixtures.SUBJ_NAME;
 
 @SpringBootTest(classes = {AppContext.class})
 @TestPropertySource(locations = "classpath:application-test.properties")
 @Transactional
 class DepartmentControllerITest {
-
-    private static final String SUBJ_NAME = "Math";
 
     @Autowired
     private DepartmentController departmentService;
@@ -34,7 +34,7 @@ class DepartmentControllerITest {
     @Test
     void whenFindProfByExistingSubject_ProfFound() {
         // GIVEN
-        final Professor expectedProf = professorController.addProfessor(new Professor("Gavrylo Petrovych"));
+        final Professor expectedProf = professorController.addProfessor(PROFESSOR);
         subjectController.addSubject(new Subject(SUBJ_NAME, expectedProf));
 
         // WHEN
