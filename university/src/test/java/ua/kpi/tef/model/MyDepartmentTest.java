@@ -23,8 +23,6 @@ public class MyDepartmentTest {
         MyDepartment d2 = new MyDepartment(DEPARTMENT_TEF);
         Assertions.assertTrue(d1.equals(d2));
         Assertions.assertTrue(department == null);
-        //assertTrue(d1==d2);
-        //assertTrue(department.equals(null));
     }
 
     @Test

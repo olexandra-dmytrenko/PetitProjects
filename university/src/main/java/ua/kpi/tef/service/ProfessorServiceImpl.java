@@ -4,7 +4,12 @@ import com.vaadin.flow.router.NotFoundException;
 
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
 import lombok.RequiredArgsConstructor;
+import ua.kpi.tef.dto.ProfResponseProfTransfer;
+import ua.kpi.tef.dto.ProfessorResponse;
 import ua.kpi.tef.model.Professor;
 import ua.kpi.tef.repository.ProfessorRepository;
 
@@ -15,13 +20,16 @@ public class ProfessorServiceImpl implements ProfessorService {
     private final ProfessorRepository professorRepository;
 
     @Override
-    public Professor addProfessor(Professor professor) {
-        return professorRepository.save(professor);
+    public ProfessorResponse addProfessor(Professor professor) {
+        return Optional.of(professorRepository.save(professor))
+                .map(ProfResponseProfTransfer::to)
+                .orElseThrow(() -> new NoSuchElementException("Couldn't create professor"));
     }
 
     @Override
-    public Professor getProfessor(Long id) {
-        return professorRepository.findById(id).orElseThrow(() ->
-                new NotFoundException("Professor with id " + id + " does not exist."));
+    public ProfessorResponse getProfessor(Long id) {
+        return professorRepository.findById(id)
+                .map(ProfResponseProfTransfer::to)
+                .orElseThrow(() -> new NotFoundException("Professor with id " + id + " does not exist."));
     }
 }

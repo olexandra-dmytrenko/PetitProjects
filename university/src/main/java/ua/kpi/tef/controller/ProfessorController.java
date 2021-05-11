@@ -1,15 +1,18 @@
 package ua.kpi.tef.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.ValidationException;
+
 import lombok.RequiredArgsConstructor;
+import ua.kpi.tef.dto.ProfessorResponse;
 import ua.kpi.tef.model.Professor;
 import ua.kpi.tef.service.ProfessorService;
 
@@ -21,20 +24,23 @@ public class ProfessorController {
     private final ProfessorService professorService;
 
     @PostMapping
-    public Professor addProfessor(@RequestBody Professor professor) {
-        return professorService.addProfessor(professor);
-    }
-
-    @PostMapping("/test")
-    public void addProfessor1(@RequestBody int professor) {
-        System.out.println(professor);
-    }
-
-    @GetMapping
     @ResponseBody
-    public Professor getProfessor(@RequestParam Long professorId) {
+    public ResponseEntity<ProfessorResponse> addProfessor(@RequestBody Professor professor) {
+            if (professor.getName().length() <= 1) {
+                throw new ValidationException("Prof name " + professor.getName() + " is too short");
+            }
+            return ResponseEntity.ok(professorService.addProfessor(professor));
+    }
 
-        return professorService.getProfessor(professorId);
+    @GetMapping("/{id}")
+    @ResponseBody
+    public ResponseEntity<ProfessorResponse> getProfessor(@PathVariable(value = "id") Long professorId) {
+//        try {
+            final ProfessorResponse professor = professorService.getProfessor(professorId);
+            return ResponseEntity.ok(professor);
+//        } catch (NotFoundException e) {
+//            return ResponseEntity.notFound().build();
+//        }
     }
 
 

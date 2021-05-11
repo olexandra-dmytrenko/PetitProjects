@@ -9,6 +9,8 @@ import org.springframework.test.context.TestPropertySource;
 import javax.transaction.Transactional;
 
 import ua.kpi.tef.context.AppContext;
+import ua.kpi.tef.dto.ProfResponseProfTransfer;
+import ua.kpi.tef.dto.ProfessorResponse;
 import ua.kpi.tef.exception.ProfessorNotFountException;
 import ua.kpi.tef.exception.SubjectNotFountException;
 import ua.kpi.tef.model.Professor;
@@ -34,7 +36,8 @@ class DepartmentControllerITest {
     @Test
     void whenFindProfByExistingSubject_ProfFound() {
         // GIVEN
-        final Professor expectedProf = professorController.addProfessor(PROFESSOR);
+        final ProfessorResponse createdProfResp = professorController.addProfessor(PROFESSOR).getBody();
+        final Professor expectedProf = ProfResponseProfTransfer.from(createdProfResp);
         subjectController.addSubject(new Subject(SUBJ_NAME, expectedProf));
 
         // WHEN
