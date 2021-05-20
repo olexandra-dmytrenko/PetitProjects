@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 @Configuration
 @Slf4j
 @PropertySource("classpath:application.properties")
-@ComponentScan(basePackages = {"ua.kpi.tef.controller", "ua.kpi.tef.service", "ua.kpi.tef.repository"})
+@ComponentScan(basePackages = {"ua.kpi.tef.controller", "ua.kpi.tef.service", "ua.kpi.tef.repository", "ua.kpi.tef.ui"})
 @Import(HibernateConfCommon.class)
 public class AppContext {
 
